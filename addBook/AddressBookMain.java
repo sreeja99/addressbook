@@ -12,9 +12,12 @@ public class AddressBookMain {
 		Scanner sc = new Scanner(System.in);
 		
 		while(option>0 && option<4) {
+			AddressBookDictionary DictObj = new AddressBookDictionary();
 			System.out.println("Enter your option\n1. Add Contact\n2.Edit Contact\n3.Delete Contact\n4. Exit");
 			option = sc.nextInt();
 			//to add a contact
+			System.out.println("Enter the Address Book Name: ");
+			String addressBookName=sc.next();
 			if(option==1) {
 				System.out.println("Enter the details to add contact");
 				System.out.println("Enter First Name");
@@ -37,6 +40,7 @@ public class AddressBookMain {
 				String email = sc.nextLine();
 				AddressBook obj = new AddressBook(firstName, lastName, address, city, state, zip, phoneNumber, email);
 				person.addContact(obj);
+				DictObj.addAddressBook(addressBookName,obj);
 			}
 			//to edit a contact
 			else if(option ==2) {
@@ -83,6 +87,7 @@ public class AddressBookMain {
 				sc.nextLine();
 				String email = sc.nextLine();
 				person.delContact(firstName,lastName,address,city,state,zip,phoneNumber,email);
+				
 				
 			}
 		}
