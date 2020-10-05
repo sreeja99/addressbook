@@ -4,21 +4,34 @@ import java.util.Scanner;
 public class AddressBookMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Welcome to Address Book Program");
-		Contacts person = new Contacts();
-		int option= 1;
-		System.out.println("Welcome to Address Book Program");
 		Scanner sc = new Scanner(System.in);
-		
-		while(option>0 && option<4) {
-			AddressBookDictionary DictObj = new AddressBookDictionary();
-			System.out.println("Enter your option\n1. Add Contact\n2.Edit Contact\n3.Delete Contact\n4. Exit");
-			option = sc.nextInt();
-			//to add a contact
-			System.out.println("Enter the Address Book Name: ");
-			String addressBookName=sc.next();
-			if(option==1) {
+		Contacts person = new Contacts();
+		int choice = 0;
+
+		while (choice != 6) {
+			// if its empty add atleast one contact
+			if (person.addressBookMap.isEmpty()) {
+				System.out.println("Please add an address book to begin");
+				System.out.println("Enter the name of address book that u want to add:");
+				String listName = sc.nextLine();
+				person.addAddressList(listName);
+			}
+			//ensure there are no duplicates
+			System.out.println("Enter the name of the address book you want to access");
+			String listName = sc.nextLine();
+			if (person.addressBookMap.containsKey(listName)) {
+				person.contactList = person.addressBookMap.get(listName);
+			}
+
+			else {
+				System.out.println("Address list with name" + listName + " not present. Please add it first.");
+			}
+			System.out.println(
+					"Enter a choice: \n 1)Add a new contact \n 2)Edit a contact \n 3)Delete Contact \n 4)Add Address Book \n 5)View Address Book Contacts \n 6)Exit");
+			choice = Integer.parseInt(sc.nextLine());
+			switch (choice) {
+			case 1: {
+				//adding a contact
 				System.out.println("Enter the details to add contact");
 				System.out.println("Enter First Name");
 				sc.nextLine();
@@ -40,10 +53,11 @@ public class AddressBookMain {
 				String email = sc.nextLine();
 				AddressBook obj = new AddressBook(firstName, lastName, address, city, state, zip, phoneNumber, email);
 				person.addContact(obj);
-				DictObj.addAddressBook(addressBookName,obj);
+				break;
 			}
-			//to edit a contact
-			else if(option ==2) {
+			case 2:
+			{
+				//editing contact
 				System.out.println("Enter the details to edit the contact");
 				System.out.println("Enter the first name");
 				sc.nextLine();
@@ -64,9 +78,11 @@ public class AddressBookMain {
 				sc.nextLine();
 				String email = sc.nextLine();
 				person.editContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+				break;
 			}
-			//to delete a contact
-			else if(option==3) {
+			case 3:
+			{
+				//deleting contact
 				System.out.println("Enter the details to delete the contact");
 				System.out.println("Enter the first name");
 				sc.nextLine();
@@ -87,16 +103,27 @@ public class AddressBookMain {
 				sc.nextLine();
 				String email = sc.nextLine();
 				person.delContact(firstName,lastName,address,city,state,zip,phoneNumber,email);
-				
-				
+				break;
 			}
-		}
-		sc.close();
-
+			case 4:
+			{ 
+				//adding addressbook
+				System.out.println("Enter the name of address book that u want to add:");
+				listName = sc.nextLine();
+				person.addAddressList(listName);
+				break;
+			}
+			case 5:
+			{
+				//showing all contacts
+				System.out.println(" " + person.contactList);
+				break;
+			}
+			case 6:
+			{
+				System.out.println("Thank you for using the application");
+			}
+			}
 	}
-
-
-
-	}
-
-
+}
+}

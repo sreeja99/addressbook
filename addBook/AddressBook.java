@@ -9,6 +9,7 @@ public class AddressBook {
 	private int zip;
 	private long phoneNumber;
 	private String email;
+	//constructor
 	public AddressBook(String firstName, String lastName, String address, String city, String state, int zip,
 			long phoneNumber, String email) {
 		this.firstName = firstName;
@@ -20,6 +21,7 @@ public class AddressBook {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
+	//getters and setters
 	public String getFirstName() {
 		return firstName;
 	}

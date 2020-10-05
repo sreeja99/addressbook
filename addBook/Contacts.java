@@ -1,20 +1,25 @@
 package addBook;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Contacts {
 
-	private ArrayList<AddressBook> contactList = new ArrayList<AddressBook>();
-
-	public ArrayList<AddressBook> getContactList() {
+	List<AddressBook> contactList = new ArrayList<AddressBook>();//for adding contacts
+	HashMap<String, List<AddressBook>> addressBookMap = new HashMap<String, List<AddressBook>>();//for adding address book
+	public List<AddressBook> getContactList() {
 		return contactList;
 	}
 
 	public void setContactList(ArrayList<AddressBook> contactList) {
 		this.contactList = contactList;
 	}
+	//method for adding contact
 	public void addContact(AddressBook obj) {
 		contactList.add(obj);
 	}
+	//method for editing contact
 	public void editContact(String firstName, String lastName, String address, String city, String state, int zip,
 			long phoneNumber, String email) {
 			for(AddressBook obj:contactList) {
@@ -33,8 +38,8 @@ public class Contacts {
 					System.out.println("There is no contact with that name");
 			}
 		}
-	
-public void delContact(String firstName, String lastName, String address, String city, String state, int zip,
+	//method for deleting contact
+   public void delContact(String firstName, String lastName, String address, String city, String state, int zip,
 		long phoneNumber, String email) {
 		for(AddressBook obj:contactList) {
 			if(obj.getFirstName().equals(firstName)&&obj.getLastName().equals(lastName)) {
@@ -46,6 +51,12 @@ public void delContact(String firstName, String lastName, String address, String
 				System.out.println("There is no contact with that name");
 		}
 	}
+   //adding new address book
+   public void addAddressList(String listName) {
+	   List<AddressBook> newAddressList = new LinkedList<AddressBook>();
+	   addressBookMap.put(listName, newAddressList);
+   	   System.out.println("Address Book added");
+}
 	
 }
 
