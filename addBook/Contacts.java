@@ -68,6 +68,7 @@ public class Contacts {
 				list.stream().filter(obj -> ((obj.getState().equals(cityOrState))&&(obj.getFirstName().equals(searchPerson)))).forEach(System.out::println);
 	   }
    }
+   ////Ability to view Persons by City or State UC9
    public void viewPersonByCityOrState(int searchChoice,String cityOrState) {
 	   for(Map.Entry<String, List<AddressBook>> entry:addressBookMap.entrySet()) {
 		   List<AddressBook> list=entry.getValue();
@@ -78,6 +79,7 @@ public class Contacts {
    }
 	
 }
+   //Ability to get number of contact persons in a city or state uc10
    public long countByCityOrState(int searchChoice,String cityOrState) {
 	   long count=0;
 	   for(Map.Entry<String, List<AddressBook>> entry:addressBookMap.entrySet()) {
