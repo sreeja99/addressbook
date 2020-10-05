@@ -78,6 +78,18 @@ public class Contacts {
    }
 	
 }
+   public long countByCityOrState(int searchChoice,String cityOrState) {
+	   long count=0;
+	   for(Map.Entry<String, List<AddressBook>> entry:addressBookMap.entrySet()) {
+		   List<AddressBook> list=entry.getValue();
+		   if(searchChoice==1)
+			   count+= list.stream().filter(obj -> ((obj.getCity().equals(cityOrState)))).count();
+		   if(searchChoice==2)
+			   count+= list.stream().filter(obj -> ((obj.getState().equals(cityOrState)))).count();
+			   
+   }
+	   return count;
+   }
 }
 
 

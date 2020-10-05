@@ -28,7 +28,7 @@ public class AddressBookMain {
 			}
 			System.out.println(
 					"Enter a choice: \n 1)Add a new contact \n 2)Edit a contact \n 3)Delete Contact \n 4)Add Address Book \n 5)View Address Book Contacts "
-					+ "\n 6)Search Person in city or state across the multiple Address Books\n 7)view  persons by city or state\n 8)Exit");
+					+ "\n 6)Search Person in city or state across the multiple Address Books\n 7)view  persons by city or state\n 8)count by city or state\n 9)Exit");
 			choice = Integer.parseInt(sc.nextLine());
 			switch (choice) {
 			case 1: {
@@ -139,6 +139,14 @@ public class AddressBookMain {
 				person.viewPersonByCityOrState(searchChoice, cityOrState);
 			}
 			case 8:
+			{
+				System.out.println("Enter the name of city or state");
+				String cityOrState = sc.nextLine();
+				System.out.println("Enter 1 if you entered name of a city \nEnter 2 if you entered name of a state");
+				int searchChoice = Integer.parseInt(sc.nextLine());
+				person.countByCityOrState(searchChoice, cityOrState);
+			}
+			case 9:
 			{
 				System.out.println("Thank you for using the application");
 			}
