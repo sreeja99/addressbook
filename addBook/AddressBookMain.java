@@ -8,7 +8,7 @@ public class AddressBookMain {
 		Contacts person = new Contacts();
 		int choice = 0;
 
-		while (choice != 6) {
+		while (choice != 7) {
 			// if its empty add atleast one contact
 			if (person.addressBookMap.isEmpty()) {
 				System.out.println("Please add an address book to begin");
@@ -27,7 +27,8 @@ public class AddressBookMain {
 				System.out.println("Address list with name" + listName + " not present. Please add it first.");
 			}
 			System.out.println(
-					"Enter a choice: \n 1)Add a new contact \n 2)Edit a contact \n 3)Delete Contact \n 4)Add Address Book \n 5)View Address Book Contacts \n 6)Exit");
+					"Enter a choice: \n 1)Add a new contact \n 2)Edit a contact \n 3)Delete Contact \n 4)Add Address Book \n 5)View Address Book Contacts \n 6)"
+					+ "searching person in particular city or state\n 7)Exit");
 			choice = Integer.parseInt(sc.nextLine());
 			switch (choice) {
 			case 1: {
@@ -119,7 +120,18 @@ public class AddressBookMain {
 				System.out.println(" " + person.contactList);
 				break;
 			}
-			case 6:
+			case 6 :
+			{
+				//searching for person based on city or state
+				System.out.println("Enter first name of person to search");
+				String searchPerson = sc.nextLine();
+				System.out.println("Enter the name of city or state");
+				String cityOrState = sc.nextLine();
+				System.out.println("Enter 1 if you entered name of a city \nEnter 2 if you entered name of a state");
+				int searchChoice = Integer.parseInt(sc.nextLine());
+				person.searchSearchByCityOrState( searchPerson, searchChoice, cityOrState);
+			}
+			case 7:
 			{
 				System.out.println("Thank you for using the application");
 			}

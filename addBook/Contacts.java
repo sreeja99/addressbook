@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class Contacts {
 
@@ -56,7 +57,17 @@ public class Contacts {
 	   List<AddressBook> newAddressList = new LinkedList<AddressBook>();
 	   addressBookMap.put(listName, newAddressList);
    	   System.out.println("Address Book added");
-}
+   }
+ //searching person based on city or state
+   public void searchSearchByCityOrState(String searchPerson,int searchChoice, String cityOrState) {
+	   for(Map.Entry<String, List<AddressBook>> entry:addressBookMap.entrySet()) {
+		   List<AddressBook> list=entry.getValue();
+		   if(searchChoice==1)
+			   list.stream().filter(obj -> ((obj.getCity().equals(cityOrState))&&(obj.getFirstName().equals(searchPerson)))).forEach(System.out::println);
+			else if(searchChoice == 2)
+				list.stream().filter(obj -> ((obj.getState().equals(cityOrState))&&(obj.getFirstName().equals(searchPerson)))).forEach(System.out::println);
+	   }
+   }
 	
 }
 
