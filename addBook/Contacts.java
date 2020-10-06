@@ -58,7 +58,9 @@ public class Contacts {
 	   addressBookMap.put(listName, newAddressList);
    	   System.out.println("Address Book added");
    }
- //searching person based on city or state
+
+ 
+   //searching person based on city or state
    public void searchSearchByCityOrState(String searchPerson,int searchChoice, String cityOrState) {
 	   for(Map.Entry<String, List<AddressBook>> entry:addressBookMap.entrySet()) {
 		   List<AddressBook> list=entry.getValue();
@@ -68,7 +70,21 @@ public class Contacts {
 				list.stream().filter(obj -> ((obj.getState().equals(cityOrState))&&(obj.getFirstName().equals(searchPerson)))).forEach(System.out::println);
 	   }
    }
+
+
+   ////Ability to view Persons by City or State UC9
+   public void viewPersonByCityOrState(int searchChoice,String cityOrState) {
+	   for(Map.Entry<String, List<AddressBook>> entry:addressBookMap.entrySet()) {
+		   List<AddressBook> list=entry.getValue();
+		   if(searchChoice==1)
+			   list.stream().filter(obj -> ((obj.getCity().equals(cityOrState)))).forEach(System.out::println);
+		   else if(searchChoice == 2)
+			   list.stream().filter(obj -> ((obj.getState().equals(cityOrState)))).forEach(System.out::println);
+   }
+
 	
+
+   }
 }
 
 
