@@ -104,8 +104,31 @@ public class Contacts {
 	    Comparsion sort = new Comparsion(Comparsion.order.NAME);
 	    Collections.sort(sortList, sort);
 	    return sortList;
+   }
+   //sort address book by city state or zip
+
+    public List<AddressBook> sortAddressBookByChoice(int choice, List<AddressBook> sortList) {
+	     Comparsion sort =null;
+	     switch(choice) {
+	     case 1:
+		     sort = new Comparsion(Comparsion.order.CITY);
+		     break;
+	     case 2:
+		     sort = new Comparsion(Comparsion.order.STATE);
+		     break;
+	     case 3:
+		     sort = new Comparsion(Comparsion.order.ZIP);
+		     break;
+	     default:
+		      System.out.println("Invalid Choice");
+	   }
+	      Collections.sort(sortList, sort);
+	      return sortList;
 }
+
+
+
+
 }
- 
 
 
