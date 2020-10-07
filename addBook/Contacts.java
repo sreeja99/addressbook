@@ -1,9 +1,13 @@
 package addBook;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import jdk.dynalink.linker.ConversionComparator.Comparison;
 
 public class Contacts {
 
@@ -95,6 +99,13 @@ public class Contacts {
 	   }
 	   return count;
    }
+   //sorting addressbook by name
+   public List<AddressBook> sortAddressBookByName(List<AddressBook> sortList) {
+	    Comparsion sort = new Comparsion(Comparsion.order.NAME);
+	    Collections.sort(sortList, sort);
+	    return sortList;
 }
+}
+ 
 
 

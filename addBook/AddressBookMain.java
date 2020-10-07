@@ -1,4 +1,5 @@
 package addBook;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -7,7 +8,7 @@ public class AddressBookMain {
 		Scanner sc = new Scanner(System.in);
 		Contacts person = new Contacts();
 		int choice = 0;
-		while (choice != 8) {
+		while (choice != 10) {
 			// if its empty add atleast one contact
 			if (person.addressBookMap.isEmpty()) {
 				System.out.println("Please add an address book to begin");
@@ -28,7 +29,7 @@ public class AddressBookMain {
 			System.out.println(
 					"Enter a choice: \n 1)Add a new contact \n 2)Edit a contact \n 3)Delete Contact \n 4)Add Address Book \n 5)View Address Book Contacts "
 					+ "\n 6)Search Person in city or state across the multiple Address Books\n 7)"
-					+ "view person by city or state \n 8) Count person By city or state\n 9)Exit");
+					+ "view person by city or state \n 8) Count person By city or state\n 9) sorted entries of address book by name \n 10)Exit");
 			choice = Integer.parseInt(sc.nextLine());
 			switch (choice) {
 			case 1: {
@@ -46,7 +47,7 @@ public class AddressBookMain {
 				System.out.println("Enter State");
 				String  state= sc.nextLine();
 				System.out.println("Enter Zip");
-				int  zip= sc.nextInt();
+				String zip= sc.nextLine();
 				System.out.println("Enter Phone Number");
 				long phoneNumber = sc.nextLong();
 				System.out.println("Enter email");
@@ -149,6 +150,12 @@ public class AddressBookMain {
 				person.countByCityOrState(searchChoice, cityOrState);
 			}
 			case 9:
+			{
+				List<AddressBook> sortedList = person.sortAddressBookByName(person.contactList);
+				System.out.println("sorted address book entries");
+				System.out.println(sortedList);
+			}
+			case 10:
 			{
 				System.out.println("Thank you for using the application");
 			}
