@@ -1,4 +1,5 @@
 package addBook;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -7,8 +8,7 @@ public class AddressBookMain {
 		Scanner sc = new Scanner(System.in);
 		Contacts person = new Contacts();
 		int choice = 0;
-
-		while (choice != 8) {
+		while (choice != 11) {
 			// if its empty add atleast one contact
 			if (person.addressBookMap.isEmpty()) {
 				System.out.println("Please add an address book to begin");
@@ -28,7 +28,9 @@ public class AddressBookMain {
 			}
 			System.out.println(
 					"Enter a choice: \n 1)Add a new contact \n 2)Edit a contact \n 3)Delete Contact \n 4)Add Address Book \n 5)View Address Book Contacts "
-					+ "\n 6)Search Person in city or state across the multiple Address Books\n 7)view  persons by city or state\n 8)count by city or state\n 9)Exit");
+					+ "\n 6)Search Person in city or state across the multiple Address Books\n 7)"
+					+ "view person by city or state \n 8) Count person By city or state\n 9) sorted entries of address book by name"
+					+ "\n 10) sorted entries by the entered choice of user \n 11)Exit");
 			choice = Integer.parseInt(sc.nextLine());
 			switch (choice) {
 			case 1: {
@@ -46,7 +48,7 @@ public class AddressBookMain {
 				System.out.println("Enter State");
 				String  state= sc.nextLine();
 				System.out.println("Enter Zip");
-				int  zip= sc.nextInt();
+				String zip= sc.nextLine();
 				System.out.println("Enter Phone Number");
 				long phoneNumber = sc.nextLong();
 				System.out.println("Enter email");
@@ -121,7 +123,8 @@ public class AddressBookMain {
 				break;
 			}
 			case 6:
-			{
+			{ 
+				//searching person by city name or state name
 				System.out.println("Enter first name of person to search");
 				String searchPerson = sc.nextLine();
 				System.out.println("Enter the name of city or state");
@@ -132,6 +135,7 @@ public class AddressBookMain {
 			}
 			case 7:
 			{
+				//view all persons from particular city or state 
 				System.out.println("Enter the name of city or state");
 				String cityOrState = sc.nextLine();
 				System.out.println("Enter 1 if you entered name of a city \nEnter 2 if you entered name of a state");
@@ -140,6 +144,7 @@ public class AddressBookMain {
 			}
 			case 8:
 			{
+				//count of person in address book by their city and state
 				System.out.println("Enter the name of city or state");
 				String cityOrState = sc.nextLine();
 				System.out.println("Enter 1 if you entered name of a city \nEnter 2 if you entered name of a state");
@@ -147,6 +152,22 @@ public class AddressBookMain {
 				person.countByCityOrState(searchChoice, cityOrState);
 			}
 			case 9:
+			{
+				//sort address book by names alphabetically
+				List<AddressBook> sortedList = person.sortAddressBookByName(person.contactList);
+				System.out.println("sorted address book entries");
+				System.out.println(sortedList);
+			}
+			case 10:
+			{
+				//sort address book by choice entered by user
+				System.out.println("\n 1)If you want to sort address book by city\n 2)1)If you want to sort address book by city"
+						+ "\n 3)1)If you want to sort address book by city");
+				int choice1 =sc.nextInt();
+				List<AddressBook> sortedList = person.sortAddressBookByChoice(choice1,person.contactList);
+				System.out.println(sortedList);
+			}
+			case 11:
 			{
 				System.out.println("Thank you for using the application");
 			}
