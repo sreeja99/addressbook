@@ -1,4 +1,4 @@
-package addBook;
+ackage addBook;
 
 public class AddressBook {
 	private String firstName;
@@ -6,18 +6,18 @@ public class AddressBook {
 	private String address;
 	private String city;
 	private String state;
-	private int zip;
+	private String zip;
 	private long phoneNumber;
 	private String email;
 	//constructor
-	public AddressBook(String firstName, String lastName, String address, String city, String state, int zip,
+	public AddressBook(String firstName, String lastName, String address, String city, String state, String zip2,
 			long phoneNumber, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
-		this.zip = zip;
+		this.zip = zip2;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
@@ -52,10 +52,10 @@ public class AddressBook {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getZip() {
+	public String getZip() {
 		return zip;
 	}
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 	public long getPhoneNumber() {
@@ -69,6 +69,18 @@ public class AddressBook {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String toString() {
+		return firstName + " " + lastName + " : " + address + " : " + city + " : " + state + " : " + zip + " : "
+				+ phoneNumber + " : " + email + "\n";
+	}
+
+	public boolean equals(Object o) {
+		AddressBook contact = (AddressBook) o;
+		if ((this.firstName).equals(contact.firstName) && (this.lastName.equals(contact.lastName)))
+			return true;
+		else
+			return false;
 	}
 	
 
