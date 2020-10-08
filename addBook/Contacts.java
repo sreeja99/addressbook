@@ -124,11 +124,6 @@ public class Contacts {
 	   }
 	      Collections.sort(sortList, sort);
 	      return sortList;
+    }
 }
-
-
-
-
-}
-
 
