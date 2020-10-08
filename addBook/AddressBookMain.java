@@ -30,7 +30,9 @@ public class AddressBookMain {
 					"Enter a choice: \n 1)Add a new contact \n 2)Edit a contact \n 3)Delete Contact \n 4)Add Address Book \n 5)View Address Book Contacts "
 					+ "\n 6)Search Person in city or state across the multiple Address Books\n 7)"
 					+ "view person by city or state \n 8) Count person By city or state\n 9) sorted entries of address book by name"
-					+ "\n 10) sorted entries by the entered choice of user \n 10)Exit");
+
+					+ "\n 10) sorted entries by the entered choice of user  \n 11)Exit");
+
 			choice = Integer.parseInt(sc.nextLine());
 			switch (choice) {
 			case 1: {

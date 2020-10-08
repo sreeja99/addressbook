@@ -44,7 +44,7 @@ public class Contacts {
 			}
 		}
 	//method for deleting contact
-   public void delContact(String firstName, String lastName, String address, String city, String state, int zip,
+       public void delContact(String firstName, String lastName, String address, String city, String state, int zip,
 		long phoneNumber, String email) {
 		for(AddressBook obj:contactList) {
 			if(obj.getFirstName().equals(firstName)&&obj.getLastName().equals(lastName)) {
@@ -106,8 +106,8 @@ public class Contacts {
 	    return sortList;
    }
    //sort address book by city state or zip
+   public List<AddressBook> sortAddressBookByChoice(int choice, List<AddressBook> sortList) {
 
-    public List<AddressBook> sortAddressBookByChoice(int choice, List<AddressBook> sortList) {
 	     Comparsion sort =null;
 	     switch(choice) {
 	     case 1:
