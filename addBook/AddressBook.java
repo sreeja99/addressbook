@@ -1,4 +1,4 @@
-ackage addBook;
+package addBook;
 
 public class AddressBook {
 	private String firstName;
@@ -7,18 +7,18 @@ public class AddressBook {
 	private String city;
 	private String state;
 	private String zip;
-	private long phoneNumber;
+	private String phoneNumber;
 	private String email;
 	//constructor
 	public AddressBook(String firstName, String lastName, String address, String city, String state, String zip2,
-			long phoneNumber, String email) {
+		String phone, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
 		this.zip = zip2;
-		this.phoneNumber = phoneNumber;
+		this.phoneNumber = phone;
 		this.email = email;
 	}
 	//getters and setters
@@ -58,10 +58,10 @@ public class AddressBook {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	public long getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(long phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getEmail() {

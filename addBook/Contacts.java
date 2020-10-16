@@ -11,6 +11,7 @@ import jdk.dynalink.linker.ConversionComparator.Comparison;
 
 public class Contacts {
 
+	public static final String AddressBookIOService = null;
 	List<AddressBook> contactList = new ArrayList<AddressBook>();//for adding contacts
 	HashMap<String, List<AddressBook>> addressBookMap = new HashMap<String, List<AddressBook>>();//for adding address book
 	public List<AddressBook> getContactList() {
@@ -26,7 +27,7 @@ public class Contacts {
 	}
 	//method for editing contact
 	public void editContact(String firstName, String lastName, String address, String city, String state, int zip,
-			long phoneNumber, String email) {
+			String phoneNumber, String email) {
 			for(AddressBook obj:contactList) {
 				if(obj.getFirstName().equals(firstName)&&obj.getLastName().equals(lastName)) {
 					obj.setFirstName(firstName);

@@ -52,7 +52,7 @@ public class AddressBookMain {
 				System.out.println("Enter Zip");
 				String zip= sc.nextLine();
 				System.out.println("Enter Phone Number");
-				long phoneNumber = sc.nextLong();
+				String phoneNumber = sc.next();
 				System.out.println("Enter email");
 				sc.nextLine();
 				String email = sc.nextLine();
@@ -78,7 +78,7 @@ public class AddressBookMain {
 				System.out.println("Enter Zip");
 				int  zip= sc.nextInt();
 				System.out.println("Enter Phone Number");
-				long phoneNumber = sc.nextLong();
+				String phoneNumber = sc.next();
 				System.out.println("Enter email");
 				sc.nextLine();
 				String email = sc.nextLine();
